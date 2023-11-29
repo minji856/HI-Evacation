@@ -12,3 +12,7 @@
 - https://fullcalendar.io/docs/plugin-index 전체 플로그인 목록
 
 - https://fullcalendar.io/docs/toolbar-demo
+
+React에 css와 footer sidebar 추가
+![image](https://github.com/minji856/HI-Evacation/assets/144756912/556dad30-1563-45b6-b3bc-19dc52a57277)
+
