@@ -14,6 +14,8 @@
 - https://fullcalendar.io/docs/toolbar-demo
 
 React에 css와 footer sidebar 추가
+- css https://startbootstrap.com/theme/sb-admin-2
+
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/556dad30-1563-45b6-b3bc-19dc52a57277)
 - font-awesome icon 설치해서 import 해야함
 - https://velog.io/@ka0son/React-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%95%84%EC%9D%B4%EC%BD%98react-icons-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
