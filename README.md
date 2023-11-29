@@ -16,3 +16,6 @@
 React에 css와 footer sidebar 추가
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/556dad30-1563-45b6-b3bc-19dc52a57277)
 - font-awesome icon 설치해서 import 해야함
+
+Navbar에 링크 달고 App.js에 라우트 걸기
+https://totally-developer.tistory.com/97
