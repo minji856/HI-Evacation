@@ -1,9 +1,9 @@
 # HI-Evacation
-# 1. Full Calendar API 사용
+## 1. Full Calendar API 사용
   - npm install --save @fullcalendar/react @fullcalendar/core @fullcalendar/daygrid
   - npm install style-loader css-loader sass-loader node-sass --save
 
-2. MyCalendar.js 생성 후 import
+## 2. MyCalendar.js 생성 후 import
    ![image](https://github.com/minji856/HI-Evacation/assets/144756912/c66cc596-7154-495c-8048-f857a1ef1f8e)
 
 (1) Plugin
