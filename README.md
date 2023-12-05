@@ -22,3 +22,15 @@ React에 css와 footer sidebar 추가
 
 Navbar에 링크 달고 App.js에 라우트 걸기
 https://totally-developer.tistory.com/97
+
+
+React 와 Sprin boot
+default 포트번호 연동
+
+포트 설정 및 proxy 설정
+SpringBoot: http://localhost:8080/
+React: http://localhost:3000/
+default로 springboot: 8080포트, react: 3000포트를 사용한다.
+이 둘을 하나의 포트로 통합하는 작업을 진행
+SpringBoot 포트 설정
+먼저 프로젝트에서 application.properties 파일을 열기
