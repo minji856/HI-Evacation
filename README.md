@@ -31,6 +31,9 @@ https://totally-developer.tistory.com/97
   SpringBoot 포트 설정
   먼저 프로젝트에서 application.properties 파일을 열기
 
+  React package.json "Proxy" : "포트번호" 설정과 npm install 해주기
+  혹은 Proxy.js 파일 만들기
+
 ## 5. Table 만들기
 drop table if exists member CASCADE;
 create table member
