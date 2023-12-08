@@ -1,22 +1,41 @@
 import React, { Component } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from "@fullcalendar/timegrid";
+import interactionPlugin from "@fullcalendar/interaction";
 import './Mycalendar.css'
 
-class MyCalendar extends Component {
-    render() {
-        return (
-          <div className="App">
-            <FullCalendar 
-              defaultView="dayGridMonth" 
-              plugins={[ dayGridPlugin ]}
-              events={[
-                { title: 'event 1', date: '2023-12-10' },
-                { title: 'event 2', date: '2023-12-24' }
-            ]}
-            />
-          </div>
-        );
-    }
+const MyCalendar = ()=> {
+  const dateClick = (info) => {
+    alert(info.dateStr)
+  }
+
+  const eventClick = (info) => {
+    const eventTitle = info.event.title;
+    alert(`Clicked on event: ${eventTitle}`);
+  };
+
+  return( 
+        <div className="App">
+          <FullCalendar 
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            initialView={'dayGridMonth'}
+            headerToolbar={{
+              start: 'today', 
+              center: 'title',
+              end: 'prev,next' 
+            }}
+            height={"85vh"}
+            dateClick={dateClick}
+            eventClick={eventClick}
+            events={[
+              { title: '창립기념일', date: '2023-12-10' },
+              { title: '워크샵', date: '2023-12-24' }
+          ]}
+
+          // events: '/api/demo-feeds/events.json'
+          />
+        </div>
+    )
 }
 export default MyCalendar;

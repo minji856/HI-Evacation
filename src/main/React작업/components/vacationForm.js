@@ -1,12 +1,12 @@
-import React , { useState, useEffect }from 'react';
+import React , { useState, useEffect } from 'react';
 
 const VacationForm = () => {
     const [formData, setFormData] = useState({
         vacationtype: '',
         startday: '',
         endday: '',
-        startTime: '09:00', // Default value
-        endTime: '18:00', // Default value
+        startTime: '09:00', // 기본값
+        endTime: '18:00', // 기본값
         currentTime: '',
         reason: '',
       });
