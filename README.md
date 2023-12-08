@@ -60,4 +60,6 @@ https://totally-developer.tistory.com/97
 
 ## 8. 일정관리랑 휴가신청을 나눔
 휴가신청에서는 달력을 더 작게 만들고 일정관리 페이지에서는 일정 등록? 칸도 만들면 좋을거같다
-오른쪾에 배치하는게 어려움
+오른쪾에 배치하는게 어려움 => row로 묶어주면 된다
+![image](https://github.com/minji856/HI-Evacation/assets/144756912/6b28665b-0e4a-4529-aa7b-4eae700f23c7)
+
