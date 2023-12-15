@@ -35,7 +35,7 @@ https://totally-developer.tistory.com/97
   혹은 Proxy.js 파일 만들기
 
 ## 5. Table 만들기
-```markdown
+```sql
   drop table if exists member CASCADE;
   create table member
   (
