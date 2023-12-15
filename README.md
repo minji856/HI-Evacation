@@ -35,6 +35,7 @@ https://totally-developer.tistory.com/97
   혹은 Proxy.js 파일 만들기
 
 ## 5. Table 만들기
+```markdown
   drop table if exists member CASCADE;
   create table member
   (
@@ -52,6 +53,7 @@ https://totally-developer.tistory.com/97
       primary key (id),
       unique (email)
   );
+```
 
 ## [ ] 6. 로그인 이름 띄우기 
 
@@ -61,7 +63,7 @@ https://totally-developer.tistory.com/97
 |2|내용 6|내용 7|
 |3|내용 10|내용 11|
 
-```
+```javascript
 app.post('/submitVacationRequest', (req, res) => {
   // 현재 로그인된 사용자의 이름을 가져옴
   const loggedInUserName = req.session.user.username;
