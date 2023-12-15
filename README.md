@@ -55,6 +55,23 @@ https://totally-developer.tistory.com/97
 
 ## [ ] 6. 로그인 이름 띄우기 
 
+app.post('/submitVacationRequest', (req, res) => {
+  // 현재 로그인된 사용자의 이름을 가져옴
+  const loggedInUserName = req.session.user.username;
+
+  // 사용자 이름을 formData에 추가
+  const formData = {
+    vacationtype: 'Some Vacation',
+    startday: '2023-01-01',
+    endday: '2023-01-10',
+    startTime: '09:00',
+    endTime: '18:00',
+    currentTime: new Date(),
+    reason: 'Some reason for vacation',
+    userName: loggedInUserName, // 사용자 이름 추가
+  };
+
+
 ## [ ] 7. React/ Spring boot 연동
 - 컨트롤러로 ajax로 데이터 받는지 확인
 
@@ -63,4 +80,6 @@ https://totally-developer.tistory.com/97
 오른쪽에 배치하는게 어려움 => row로 묶어주면 된다
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/6b28665b-0e4a-4529-aa7b-4eae700f23c7)
 
-[ ] 사이드바 연동하기
+
+
+[*] 사이드바 연동하기
