@@ -55,6 +55,12 @@ https://totally-developer.tistory.com/97
 
 ## [ ] 6. 로그인 이름 띄우기 
 
+|No|기능|설명|
+|---|---|---|
+|1|조회|내용 3|
+|2|내용 6|내용 7|
+|3|내용 10|내용 11|
+
 app.post('/submitVacationRequest', (req, res) => {
   // 현재 로그인된 사용자의 이름을 가져옴
   const loggedInUserName = req.session.user.username;
