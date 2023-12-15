@@ -61,6 +61,7 @@ https://totally-developer.tistory.com/97
 |2|내용 6|내용 7|
 |3|내용 10|내용 11|
 
+```
 app.post('/submitVacationRequest', (req, res) => {
   // 현재 로그인된 사용자의 이름을 가져옴
   const loggedInUserName = req.session.user.username;
@@ -76,7 +77,7 @@ app.post('/submitVacationRequest', (req, res) => {
     reason: 'Some reason for vacation',
     userName: loggedInUserName, // 사용자 이름 추가
   };
-
+```
 
 ## [ ] 7. React/ Spring boot 연동
 - 컨트롤러로 ajax로 데이터 받는지 확인
