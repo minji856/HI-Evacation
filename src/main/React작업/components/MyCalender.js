@@ -16,11 +16,11 @@ import './Mycalendar.css'
  * @returns 현재 날짜 지정 이벤트
  */
 
-// 일정 정보를 출력하는 컴포넌트
-function renderEventContent(eventInfo) {
+// 일정을 커스텀 하는 옵션
+const renderEventContent = (eventInfo) => {
   return (
     <>
-      <b>{eventInfo.timeText}</b>
+      <b>테스트 : </b>
       <i>{eventInfo.event.title}</i>
     </>
   )
@@ -77,7 +77,7 @@ const MyCalendar = ()=> {
             select={handleDateSelect}
             height={"85vh"}
             eventAdd={function(){}}
-            eventContent={renderEventContent()}
+            eventContent={renderEventContent}
             // eventClick={handleEventClick}
             // eventsSet={handleEvents()}
             // events={events}
