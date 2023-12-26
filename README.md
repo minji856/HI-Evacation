@@ -106,6 +106,20 @@ app.post('/submitVacationRequest', (req, res) => {
 오른쪽에 배치하는게 어려움 => row로 묶어주면 된다
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/6b28665b-0e4a-4529-aa7b-4eae700f23c7)
 
+## 일정을 입력하면 날짜에 나오게 출력
+- 내가 원하는 대로 이벤트를 꾸밀 수 있음
+```javascript
+// 일정을 커스텀 하는 옵션
+const renderEventContent = (eventInfo) => {
+  return (
+    <>
+      <b>테스트 : </b>
+      <i>{eventInfo.event.title}</i>
+    </>
+  )
+}
+```
+![image](https://github.com/minji856/HI-Evacation/assets/144756912/b65bebe4-71d2-4e0d-b55e-7b9b3d33fa96)
 
 
 [*] 사이드바 연동하기
