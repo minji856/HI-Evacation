@@ -125,5 +125,8 @@ const renderEventContent = (eventInfo) => {
 - 여러개일때 + 더보기 생김
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/1a8857a9-fef3-413e-9065-d66da8f4d495)
 
+- 일정을 클릭하면 삭제 기능도 됨
+![image](https://github.com/minji856/HI-Evacation/assets/144756912/59d651eb-d721-4c55-9dd2-6742f19ac6b3)
+
 
 [*] 사이드바 연동하기
