@@ -122,11 +122,12 @@ const renderEventContent = (eventInfo) => {
 }
 ```
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/b65bebe4-71d2-4e0d-b55e-7b9b3d33fa96)
-- 여러개일때 + 더보기 생김
+- 여러개일때 + 더보기 생김<br>
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/1a8857a9-fef3-413e-9065-d66da8f4d495)
 
-- 일정을 클릭하면 삭제 기능도 됨
+	- 일정을 클릭하면 삭제 기능도 됨<br>
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/59d651eb-d721-4c55-9dd2-6742f19ac6b3)
 
+- 이벤트에 시간을 입력하니까 CSS가 깨짐
 
 [*] 사이드바 연동하기
