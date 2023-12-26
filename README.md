@@ -73,6 +73,8 @@ CREATE TABLE CALENDAR (
 
 
 ## [ ] 6. 로그인 이름 띄우기 
+- jwt 와 충돌 가능성이 높아 session 은 사용 안 함
+- 
 
 |No|기능|설명|
 |---|---|---|
@@ -120,6 +122,8 @@ const renderEventContent = (eventInfo) => {
 }
 ```
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/b65bebe4-71d2-4e0d-b55e-7b9b3d33fa96)
+- 여러개일때 + 더보기 생김
+![image](https://github.com/minji856/HI-Evacation/assets/144756912/1a8857a9-fef3-413e-9065-d66da8f4d495)
 
 
 [*] 사이드바 연동하기
