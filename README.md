@@ -25,8 +25,8 @@ https://totally-developer.tistory.com/97
 	- setProxy.js 를 일단 사용 안하고 React package.json 에 "proxy" : "http://localhost:8484" 추가해줌
  ![image](https://github.com/minji856/HI-Evacation/assets/144756912/d011af2d-8a3e-4dff-b85e-1b5f79566b1f)
 - map 으로 꺼내니까 데이터가 넘어왔다
-	- [ ]가져온 데이터를 반복문으로 날짜에 맞게 출력하게 해줘야 한다.
-	- [ ]프롬프트 창에서 입력하면 DB 에 저장되게
+- [ ] 가져온 데이터를 반복문으로 날짜에 맞게 출력하게 해줘야 한다.
+- [ ] 프롬프트 창에서 입력하면 DB 에 저장되게
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/fc0e0c6c-ef0c-4a15-a589-6c93dbd71554)
 
 - 컨트롤러로 ajax로 데이터 받는지 확인
