@@ -1,4 +1,4 @@
-import React , { useState }from 'react';
+import React , { useState, useEffect }from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -14,35 +14,35 @@ import './Mycalendar.css'
 
 /**
  * 일정 출력 모양을 커스텀 하는 함수
- * @param eventInfo 이벤트 정보
+ * @param info 일정 정보
  * @return 일정 제목과 시간
  *  */ 
-const renderEventContent = (eventInfo) => {
+const renderEventContent = (info) => {
   return (
     <>
-      <b>{eventInfo.timeText}</b>
-      <i>{eventInfo.event.title}</i>
+      <b>{info.timeText}</b>
+      <i>{info.event.title}</i>
     </>
   )
 }
 
 /**
  * 날짜를 누르면 입력 프롬프트 생성 후 정보 기입하는 메서드
- * @param selectInfo 선택된 정보
+ * @param clickInfo 빈 날짜 클릭 정보
  * @return 일정 제목, 시작일, 종료일
  */
-const handleDateSelect = (selectInfo) => {
+const handleDateSelect = (clickInfo) => {
   let title = prompt('일정 제목을 입력해주세요.')
-  let calendarApi = selectInfo.view.calendar
+  let calendarApi = clickInfo.view.calendar // 원하는 정보가 담겨있진 않음
 
   // calendarApi.unselect()
 
-  // 현재 제목만 입력됨
+  // 현재는 제목만 입력됨
   if (title) {
     calendarApi.addEvent({
       title: title,
-      start: selectInfo.startStr,
-      end: selectInfo.endStr,
+      start: clickInfo.startStr,
+      end: clickInfo.endStr,
       // allDay: selectInfo.allDay 시간기능 구현해야지만 됨
     })
   }
@@ -50,7 +50,7 @@ const handleDateSelect = (selectInfo) => {
 
 /**
  * 일정을 클릭하면 일정이 삭제됨 ( db 연동 해야함 )
- * 일정 상세보기 구현하기
+ * 일정 상세보기 구현해야함
  * @param clickInfo 일정 클릭했을 때의 정보
  */
 const handleEventClick = (clickInfo) => {
@@ -60,10 +60,20 @@ const handleEventClick = (clickInfo) => {
 }
 
 const MyCalendar = ()=> {
-  const [events, setEvents] = useState([]);
+  const [eventdata, setEvents] = useState([]);
+
+  /**
+   * 서버에서로부터 데이터 가져오는 메서드
+   */
+  useEffect(() => {
+    fetch("/api/event")
+        .then((res) => {return res.json();})
+        .then((data) => {setEvents(data);})
+  }, []);
 
   return( 
         <div className="App">
+
           <FullCalendar 
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             initialView={'dayGridMonth'} // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
@@ -73,12 +83,12 @@ const MyCalendar = ()=> {
               center: 'title',
               end: 'prev,next' 
             }}
-            events={[
-              { title: '창립기념일', // 더미데이터
-                start: '2023-12-10',
-                end: '2023-12-15' },
-              { title: '워크샵', date: '2023-12-24' }
-            ]}
+            // events={[
+            //   { title: '창립기념일', // 더미데이터
+            //     start: '2023-12-10',
+            //     end: '2023-12-15' },
+            //   { title: '워크샵', date: '2023-12-24' }
+            // ]}
             editable={true}
             selectable={true} // 달력 일자 드래그 설정가능
             dayMaxEvents={true} // 일정이 오버되면 높이 제한 +더보기 나오는 기능
@@ -89,7 +99,9 @@ const MyCalendar = ()=> {
             eventChange={function(){}} // 이벤트가 수정되면 발생하는 이벤트
             eventContent={renderEventContent}
             eventClick={handleEventClick}
-            // events={events}
+            // 서버에서 출력은 되지만 날짜가 같이 입력됨. 수정해야함
+            events={eventdata.map((title) => 
+              ({ title, start: '2023-12-10', end: '2023-12-13' }))} // 동적으로 불러온 데이터를 사용
           />
         </div>
     )
