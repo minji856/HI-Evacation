@@ -1,9 +1,8 @@
-# HI-Evacation
-## 1. Full Calendar API 사용
+### 1. Full Calendar API 사용
   - npm install --save @fullcalendar/react @fullcalendar/core @fullcalendar/daygrid
   - npm install style-loader css-loader sass-loader node-sass --save
 
-## 2. MyCalendar.js 생성 후 import
+### 2. MyCalendar.js 생성 후 import
    ![image](https://github.com/minji856/HI-Evacation/assets/144756912/c66cc596-7154-495c-8048-f857a1ef1f8e)
 - Plugin
   - dayGrid : 기본 달력을 그리기 위한
@@ -11,7 +10,7 @@
   - https://fullcalendar.io/docs/plugin-index 전체 플로그인 목록
   - https://fullcalendar.io/docs/toolbar-demo
 
-## 3. React에 css와 footer sidebar 추가
+### 3. React에 css와 footer sidebar 추가
 - css https://startbootstrap.com/theme/sb-admin-2
 
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/556dad30-1563-45b6-b3bc-19dc52a57277)
@@ -21,20 +20,20 @@
 Navbar에 링크 달고 App.js에 라우트 걸기
 https://totally-developer.tistory.com/97
 
-## 4. React 와 Sprin boot 연동
-- default 포트번호 연동
-  포트 설정 및 proxy 설정
-  SpringBoot: http://localhost:8080/
-  React: http://localhost:3000/
-  default로 springboot: 8080포트, react: 3000포트를 사용한다.
-  이 둘을 하나의 포트로 통합하는 작업을 진행
-  SpringBoot 포트 설정
-  먼저 프로젝트에서 application.properties 파일을 열기
+### 4. React 와 Sprin Boot 연동
+- proxy 설정
+	- setProxy.js 를 일단 사용 안하고 React package.json 에 "proxy" : "http://localhost:8484" 추가해줌
 
-  React package.json "Proxy" : "포트번호" 설정과 npm install 해주기
-  혹은 Proxy.js 파일 만들기
+  map 으로 꺼내니까 데이터가 넘어왔다 -> 일정 형식으로 달력에 넣을 예정
+  ![image](https://github.com/minji856/HI-Evacation/assets/144756912/d011af2d-8a3e-4dff-b85e-1b5f79566b1f)
+- 컨트롤러로 ajax로 데이터 받는지 확인
+- `useEffect` 훅을 사용하여 컴포넌트가 마운트될 때 데이터를 가져온다.
+- axios 라이브러리 활용
+- default 포트
+	- SpringBoot: http://localhost:8080/
+  	- React: http://localhost:3000/
 
-## 5. DB 만들기
+### 5. DB 만들기
 ```sql
   drop table if exists member CASCADE;
   create table member
@@ -71,14 +70,13 @@ CREATE TABLE CALENDAR (
 );
 ```
 
-
-## [ ] 6. 로그인 이름 띄우기 
+### [ ] 6. 로그인 이름 띄우기 
 - jwt 와 충돌 가능성이 높아 Session 은 사용 안 함
 
 |No|기능|설명|
 |---|---|---|
 |1|조회|내용 3|
-|2|내용 6|내용 7|
+|2|변경|내용 7|
 |3|내용 10|내용 11|
 
 ```javascript
@@ -99,30 +97,11 @@ app.post('/submitVacationRequest', (req, res) => {
   };
 ```
 
-## [ ] 7. React/ Spring boot 연동
-- 컨트롤러로 ajax로 데이터 받는지 확인
-- `useEffect` 훅을 사용하여 컴포넌트가 마운트될 때 데이터를 가져온다.
-- axios 라이브러리 활용
-
-
-## 8. 일정관리랑 휴가신청을 나눔
-휴가신청에서는 달력을 더 작게 만들고 일정관리 페이지에서는 일정 등록칸도 만들면 좋을거같다
-오른쪽에 배치하는게 어려움 => row로 묶어주면 된다
+### 7. 일정관리랑 휴가신청을 로직 분리
+일정관리에 여유가 되면 modal 써보기
+	- 오른쪽에 배치하는게 어려움 => row로 묶어주면 된다
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/6b28665b-0e4a-4529-aa7b-4eae700f23c7)
 
-## 일정을 입력하면 날짜에 나오게 출력
-- 내가 원하는 대로 이벤트를 꾸밀 수 있음
-```javascript
-// 일정을 커스텀 하는 옵션
-const renderEventContent = (eventInfo) => {
-  return (
-    <>
-      <b>테스트 : </b>
-      <i>{eventInfo.event.title}</i>
-    </>
-  )
-}
-```
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/b65bebe4-71d2-4e0d-b55e-7b9b3d33fa96)
 - 여러개일때 + 더보기 생김<br>
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/1a8857a9-fef3-413e-9065-d66da8f4d495)
@@ -131,5 +110,3 @@ const renderEventContent = (eventInfo) => {
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/59d651eb-d721-4c55-9dd2-6742f19ac6b3)
 
 - 이벤트에 시간을 입력하니까 CSS가 깨짐
-
-[*] 사이드바 연동하기
