@@ -23,9 +23,12 @@ https://totally-developer.tistory.com/97
 ### 4. React 와 Sprin Boot 연동
 - proxy 설정
 	- setProxy.js 를 일단 사용 안하고 React package.json 에 "proxy" : "http://localhost:8484" 추가해줌
+ ![image](https://github.com/minji856/HI-Evacation/assets/144756912/d011af2d-8a3e-4dff-b85e-1b5f79566b1f)
+- map 으로 꺼내니까 데이터가 넘어왔다
+	- [ ]가져온 데이터를 반복문으로 날짜에 맞게 출력하게 해줘야 한다.
+	- [ ]프롬프트 창에서 입력하면 DB 에 저장되게
+![image](https://github.com/minji856/HI-Evacation/assets/144756912/fc0e0c6c-ef0c-4a15-a589-6c93dbd71554)
 
-  map 으로 꺼내니까 데이터가 넘어왔다 -> 일정 형식으로 달력에 넣을 예정
-  ![image](https://github.com/minji856/HI-Evacation/assets/144756912/d011af2d-8a3e-4dff-b85e-1b5f79566b1f)
 - 컨트롤러로 ajax로 데이터 받는지 확인
 - `useEffect` 훅을 사용하여 컴포넌트가 마운트될 때 데이터를 가져온다.
 - axios 라이브러리 활용
