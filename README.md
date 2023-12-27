@@ -34,7 +34,7 @@ https://totally-developer.tistory.com/97
   React package.json "Proxy" : "포트번호" 설정과 npm install 해주기
   혹은 Proxy.js 파일 만들기
 
-## 5. Table 만들기
+## 5. DB 만들기
 ```sql
   drop table if exists member CASCADE;
   create table member
@@ -73,8 +73,7 @@ CREATE TABLE CALENDAR (
 
 
 ## [ ] 6. 로그인 이름 띄우기 
-- jwt 와 충돌 가능성이 높아 session 은 사용 안 함
-- 
+- jwt 와 충돌 가능성이 높아 Session 은 사용 안 함
 
 |No|기능|설명|
 |---|---|---|
@@ -102,6 +101,9 @@ app.post('/submitVacationRequest', (req, res) => {
 
 ## [ ] 7. React/ Spring boot 연동
 - 컨트롤러로 ajax로 데이터 받는지 확인
+- `useEffect` 훅을 사용하여 컴포넌트가 마운트될 때 데이터를 가져온다.
+- axios 라이브러리 활용
+
 
 ## 8. 일정관리랑 휴가신청을 나눔
 휴가신청에서는 달력을 더 작게 만들고 일정관리 페이지에서는 일정 등록칸도 만들면 좋을거같다
