@@ -116,3 +116,36 @@ app.post('/submitVacationRequest', (req, res) => {
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/59d651eb-d721-4c55-9dd2-6742f19ac6b3)
 
 - 이벤트에 시간을 입력하니까 CSS가 깨짐
+
+### 8. 구글 캘린더 API 연동
+- Apikey는 환경 변수를 이용해 숨겨주기
+```javascript
+import React from 'react';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
+import '../css/Calendar.css';
+
+// https://fullcalendar.io/docs/google-calendar
+export default function Calendarpg() {
+  const apiKey = process.env.REACT_APP_CAL_API_KEY;
+
+  return (
+    <div className="cal-container">
+      <FullCalendar
+        plugins={[dayGridPlugin, googleCalendarPlugin]}
+        initialView="dayGridMonth"
+        googleCalendarApiKey={apiKey}
+        events={{
+          googleCalendarId: '(권한자)@gmail.com',
+        }}
+        eventDisplay={'block'}
+        eventTextColor={'#FFF'}
+        eventColor={'#F2921D'}
+        height={'660px'}
+        Toolbar
+      />
+    </div>
+  );
+}
+```
