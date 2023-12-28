@@ -23,7 +23,7 @@
 Navbar에 링크 달고 App.js에 라우트 걸기
 https://totally-developer.tistory.com/97
 
-### 4. React 와 Sprin Boot 연동
+### 4. React 와 Spring Boot 연동
 - proxy 설정
 	- setProxy.js 를 일단 사용 안하고 React package.json 에 "proxy" : "http://localhost:8484" 추가해줌
  ![image](https://github.com/minji856/HI-Evacation/assets/144756912/d011af2d-8a3e-4dff-b85e-1b5f79566b1f)
