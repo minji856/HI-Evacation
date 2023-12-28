@@ -17,6 +17,9 @@
 - font-awesome icon 설치해서 import 해야함
 - https://velog.io/@ka0son/React-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%95%84%EC%9D%B4%EC%BD%98react-icons-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
 
+- footer와 navbar가 2개가 나오는 문제 해결
+- Route의 위치를 바꿔주면 됐다 !!!!
+
 Navbar에 링크 달고 App.js에 라우트 걸기
 https://totally-developer.tistory.com/97
 
