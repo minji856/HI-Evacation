@@ -73,7 +73,6 @@ const MyCalendar = ()=> {
 
   return( 
         <div className="App">
-
           <FullCalendar 
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             initialView={'dayGridMonth'} // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
@@ -83,8 +82,9 @@ const MyCalendar = ()=> {
               center: 'title',
               end: 'prev,next' 
             }}
+            // 더미데이터 + 공휴일 불러 오기
             // events={[
-            //   { title: '창립기념일', // 더미데이터
+            //   { title: '창립기념일', 
             //     start: '2023-12-10',
             //     end: '2023-12-15' },
             //   { title: '워크샵', date: '2023-12-24' }
