@@ -119,8 +119,10 @@ app.post('/submitVacationRequest', (req, res) => {
 
 ### 8. 구글 캘린더 API 연동 공휴일 띄우기
 - Apikey는 환경 변수를 이용해 숨겨주기
-- env 에 "" 안에 키를 입력해서 안 됐었다
-- events 보다 eventSourc에 입력하니까 연동 성공함
+	- .env 파일에 "" 안에 키를 입력해서 안 됐었다
+ 	- 키는 REACT_APP 로 작성해야지만 인식된다
+  		- `REACT_APP_CAL_API_KEY =`
+- eventSource 는 배열이라 타입 에러 떳다. events에 넣어주기 해결됨
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/b34e10c1-1adc-473a-b053-0437bec886ff)
 
 ```javascript
@@ -140,9 +142,9 @@ export default function Calendarpg() {
         plugins={[dayGridPlugin, googleCalendarPlugin]}
         initialView="dayGridMonth"
         googleCalendarApiKey={apiKey}
-        events={{
-          googleCalendarId: '(권한자)@gmail.com',
-        }}
+        events={{googleCalendarId:'(구글캘린더ID)@gmail.com',
+              googleCalendarId : 'ko.south_korea#holiday@group.v.calendar.google.com',
+              className : 'ko_event' }}
         eventDisplay={'block'}
         eventTextColor={'#FFF'}
         eventColor={'#F2921D'}
