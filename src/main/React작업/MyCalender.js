@@ -9,15 +9,12 @@ import './Mycalendar.css'
 
 /**
  * FullCalendar API 사용
- * npm install --save @fullcalendar/react @fullcalendar/core @fullcalendar/daygrid @fullcalendar/interaction @fullcalendar/timegrid
- * npm install style-loader css-loader sass-loader node-sass --save
- */
+ * google API 키 환경 변수로 설정
 
-/**
- * 일정 출력 모양을 커스텀 하는 함수
+ * 일정 출력 모양을 커스텀 하는 메서드입니다.
  * @param info 일정 정보
  * @return 일정 제목과 시간
- *  */ 
+ */ 
 const renderEventContent = (info) => {
   return (
     <>
@@ -95,17 +92,20 @@ const MyCalendar = ()=> {
             // ]}
             /* 구글 캘린더 API 추가 */
             googleCalendarApiKey={apiKey}
-            events={{ googleCalendarId: 'sistar96@gmail.com' }}
+            events={{googleCalendarId:'sistar96@gmail.com',
+              googleCalendarId : 'ko.south_korea#holiday@group.v.calendar.google.com',
+              className : 'ko_event' }}
+            eventDisplay={'block'}
+            eventClick={handleEventClick}
             editable={true}
             selectable={true} // 달력 일자 드래그 설정가능
             dayMaxEvents={true} // 일정이 오버되면 높이 제한 +더보기 나오는 기능
             select={handleDateSelect}
             height={"85vh"}
             locale={'ko'} // 한국어 설정
-            eventAdd={function(){}} // 이벤트가 추가되면 발생하는 이벤트
-            eventChange={function(){}} // 이벤트가 수정되면 발생하는 이벤트
-            eventContent={renderEventContent}
-            eventClick={handleEventClick}
+            // eventAdd={function(){}} // 이벤트가 추가되면 발생하는 이벤트
+            // eventChange={function(){}} // 이벤트가 수정되면 발생하는 이벤트
+            // eventContent={renderEventContent}
             // 서버에서 출력은 되지만 날짜가 같이 입력됨. 수정해야함
             // events={eventdata.map((title) => 
             //   ({ title, start: '2023-12-10', end: '2023-12-13' }))} // 동적으로 불러온 데이터를 사용
