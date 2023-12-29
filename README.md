@@ -3,7 +3,7 @@
   - npm install style-loader css-loader sass-loader node-sass --save
 
 ### 2. MyCalendar.js 생성 후 import
-   ![image](https://github.com/minji856/HI-Evacation/assets/144756912/c66cc596-7154-495c-8048-f857a1ef1f8e)
+<img src="https://github.com/minji856/HI-Evacation/assets/144756912/c66cc596-7154-495c-8048-f857a1ef1f8e" width="100%" height="600"/><br>
 - Plugin
   - dayGrid : 기본 달력을 그리기 위한
   - interaction : 이벤트 감지, 클릭, 드래그
@@ -108,7 +108,7 @@ app.post('/submitVacationRequest', (req, res) => {
 	- 오른쪽에 배치하는게 어려움 => row로 묶어주면 된다
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/6b28665b-0e4a-4529-aa7b-4eae700f23c7)
 
-![image](https://github.com/minji856/HI-Evacation/assets/144756912/b65bebe4-71d2-4e0d-b55e-7b9b3d33fa96)
+<img src="https://github.com/minji856/HI-Evacation/assets/144756912/b65bebe4-71d2-4e0d-b55e-7b9b3d33fa96" width="100%" height="500"/><br>
 - 여러개일때 + 더보기 생김<br>
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/1a8857a9-fef3-413e-9065-d66da8f4d495)
 
