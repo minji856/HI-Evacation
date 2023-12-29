@@ -117,8 +117,12 @@ app.post('/submitVacationRequest', (req, res) => {
 
 - 이벤트에 시간을 입력하니까 CSS가 깨짐
 
-### 8. 구글 캘린더 API 연동
+### 8. 구글 캘린더 API 연동 공휴일 띄우기
 - Apikey는 환경 변수를 이용해 숨겨주기
+- env 에 "" 안에 키를 입력해서 안 됐었다
+- events 보다 eventSourc에 입력하니까 연동 성공함
+![image](https://github.com/minji856/HI-Evacation/assets/144756912/b34e10c1-1adc-473a-b053-0437bec886ff)
+
 ```javascript
 import React from 'react';
 import FullCalendar from '@fullcalendar/react';
