@@ -122,7 +122,7 @@ app.post('/submitVacationRequest', (req, res) => {
 	- .env 파일에 "" 안에 키를 입력해서 안 됐었다
  	- 키는 REACT_APP 로 작성해야지만 인식된다
   		- `REACT_APP_CAL_API_KEY =`
-- eventSource 는 배열이라 타입 에러 떳다. events에 넣어주기 해결됨
+- eventSource 로 Multiple Google
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/b34e10c1-1adc-473a-b053-0437bec886ff)
 
 ```javascript
