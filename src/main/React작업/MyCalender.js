@@ -66,7 +66,7 @@ const MyCalendar = ()=> {
    * 서버에서로부터 데이터 가져오는 메서드입니다.
    */
   useEffect(() => {
-    fetch("/api/event")
+    fetch("/api/calendar")
         .then((res) => {return res.json();})
         .then((data) => {setEvents(data);})
   }, []);
@@ -76,23 +76,48 @@ const MyCalendar = ()=> {
           <FullCalendar 
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, googleCalendarPlugin]}
             initialView={'dayGridMonth'} // 초기 로드될 때 보이는 캘린더 화면(기본 설정: 달)
+            buttonText= {
+              {
+                today: '오늘',
+                month: '월',
+                week:  '주',
+                day:   '일'
+              }
+            }
             // 해더에 표시할 툴바
             headerToolbar={{
-              start: 'today', 
+              left: 'prev,next,today', 
               center: 'title',
-              end: 'prev,next' 
+              right: 'dayGridMonth,timeGridWeek,timeGridDay' 
             }}
             /* 구글 캘린더 API 추가 */
             googleCalendarApiKey={apiKey}
             eventSources = {[
-              {
-                googleCalendarId: 'sistar96@gmail.com'
-              },
+              // 한국 공휴일 출력을 위한 통합 google Id
               {
                 googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
-                className: 'ko_event'
+                className: 'ko-event'
               }
             ]}
+            /*
+            events={ async (info, successCallback, failureCallback)=>{
+              const eventResult = await axios({
+                method: "POST",
+                url: "/eventData"
+              })
+              const eventData = eventResult.data;
+
+              const eventArray = [];
+              eventData.forEach((res)=>{
+                eventArray.push({
+                  title: res.title,
+                  start: res.start,
+                  end: res.end
+                })
+              })
+              successCallback(eventArray);
+            }}
+            */
             eventDisplay={'block'}
             eventClick={handleEventClick}
             editable={true}
@@ -102,7 +127,6 @@ const MyCalendar = ()=> {
             height={"85vh"}
             locale={'ko'} // 한국어 설정
             // eventContent={renderEventContent} // 일정 제목 커스텀
-            // eventAdd={function(){}} // 이벤트가 추가되면 발생하는 이벤트
             // eventChange={function(){}} // 이벤트가 수정되면 발생하는 이벤트
             // 서버에서 출력은 되지만 날짜가 같이 입력됨. 수정해야함
             // events={eventdata.map((title) => 
