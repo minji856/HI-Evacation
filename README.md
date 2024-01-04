@@ -139,19 +139,38 @@ export default function Calendarpg() {
   return (
     <div className="cal-container">
       <FullCalendar
-        plugins={[dayGridPlugin, googleCalendarPlugin]}
-        initialView="dayGridMonth"
-        googleCalendarApiKey={apiKey}
-        events={{googleCalendarId:'(구글캘린더ID)@gmail.com',
-              googleCalendarId : 'ko.south_korea#holiday@group.v.calendar.google.com',
-              className : 'ko_event' }}
-        eventDisplay={'block'}
-        eventTextColor={'#FFF'}
-        eventColor={'#F2921D'}
-        height={'660px'}
-        Toolbar
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, googleCalendarPlugin]}
+            initialView={'dayGridMonth'} // 초기 로드될 때 보이는 캘린더 화면(기본 설정: 달)
+            buttonText= {
+              {
+                today: '오늘',
+                month: '월',
+                week:  '주',
+                day:   '일'
+              }
+            }
+            // 해더에 표시할 툴바
+            headerToolbar={{
+              left: 'prev,next,today', 
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay' 
+            }}
+            /* 구글 캘린더 API 추가 */
+            googleCalendarApiKey={apiKey}
+            eventSources = {[
+              // 한국 공휴일 출력을 위한 통합 google Id
+              {
+                googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+                className: 'ko-event'
+              }
+            ]}
       />
 ```
+### 해야할일
+- 캘린더에 일정을 db 에 저장 하기
+- axios
+- 스프링 navbar와 연동
+
 ### 9. 출퇴근 관리
 - 로그인됐는지 조건식으로 작성
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/414f40ed-b842-4099-8b99-e6496398db73)
