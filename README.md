@@ -29,7 +29,7 @@ https://totally-developer.tistory.com/97
  ![image](https://github.com/minji856/HI-Evacation/assets/144756912/d011af2d-8a3e-4dff-b85e-1b5f79566b1f)
 - map 으로 꺼내니까 데이터가 넘어왔다
 - [ ] 가져온 데이터를 반복문으로 날짜에 맞게 출력하게 해줘야 한다.
-- [ ] 프롬프트 창에서 입력하면 DB 에 저장되게
+- [ ] 프롬프트 창에서 입력하면 DB 에 저장되게 -> modal 활용해야한다.
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/fc0e0c6c-ef0c-4a15-a589-6c93dbd71554)
 
 - 컨트롤러로 ajax로 데이터 받는지 확인
@@ -39,7 +39,7 @@ https://totally-developer.tistory.com/97
 	- SpringBoot: http://localhost:8080/
   	- React: http://localhost:3000/
 
-### 5. DB 만들기
+### 5. Table 만들기
 ```sql
   drop table if exists member CASCADE;
   create table member
@@ -59,13 +59,13 @@ https://totally-developer.tistory.com/97
       unique (email)
   );
 ```
+- 작성자 이름 까지
 ```sql
 DROP TABLE CALENDAR CASCADE CONSTRAINTS;
 
 CREATE SEQUENCE CALENDAR_NO_SEQ
     START WITH 1
     INCREMENT BY 1;
-
 
 CREATE TABLE CALENDAR (
 	CALENDAR_NO NUMBER	NOT NULL PRIMARY KEY,
@@ -168,10 +168,60 @@ export default function Calendarpg() {
 ```
 ### 해야할일
 - 캘린더에 일정을 db 에 저장 하기
-- axios
-- 스프링 navbar와 연동
+- axios [*]
+- 스프링 navbar와 연동 -> 빌드 후 실행하기
+
+- build.gradle 에 넣어야 할것
+```
+def reactAppDir = "$projectDir/src/main/front-end"
+
+sourceSets {
+	main {
+		resources {
+			srcDirs = ["$projectDir/src/main/resources"]
+		}
+	}
+}
+
+processResources {
+	dependsOn "copyReactFile"
+}
+
+task installReact(type: Exec) {
+	workingDir "$reactAppDir"
+	inputs.dir "$reactAppDir"
+	group = BasePlugin.BUILD_GROUP
+	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+		commandLine "npm.cmd", "audit", "fix"
+		commandLine 'npm.cmd', 'install'
+	} else {
+		commandLine "npm", "audit", "fix"
+		commandLine 'npm', 'install'
+	}
+}
+
+task buildReact(type: Exec) {
+	dependsOn "installReact"
+	workingDir "$reactAppDir"
+	inputs.dir "$reactAppDir"
+	group = BasePlugin.BUILD_GROUP
+	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+		commandLine "npm.cmd", "run-script", "build"
+	} else {
+		commandLine "npm", "run-script", "build"
+	}
+}
+
+task copyReactFile(type: Copy) {
+	dependsOn "buildReact"
+	from "$reactAppDir/build"
+	into "$buildDir/resources/main/static"
+}
+```
 
 ### 9. 출퇴근 관리
 - 로그인됐는지 조건식으로 작성
 ![image](https://github.com/minji856/HI-Evacation/assets/144756912/414f40ed-b842-4099-8b99-e6496398db73)
+
+
 
